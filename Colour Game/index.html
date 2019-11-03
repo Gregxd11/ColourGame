@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Color Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="colorgame.css">
 </head>
 <body>
@@ -16,21 +18,43 @@
     Color Game
 </h1>
 
-<div id="stripe">
-    <button id="reset">New Colors</button>
-    <span id="message"></span>
-    <button class="mode">Easy</button>
-    <button class="mode selected">Hard</button>
+<div id="stripe" class="container-fluid sticky">
+    <div class="row text-center no-gutters">
+        <div class="col-4">
+            <button id="reset">New Colors</button>
+        </div>
+        <div class="col-4 align-self-center">
+            <span id="message"></span>
+        </div>
+        <div class="col-4 px-0">
+            <button class="mode expanded">Easy</button>
+            <button class="mode selected expanded">Normal</button>
+            <button class="mode expanded">Hard</button>
+            <button class="mode expanded">Extreme</button>
+            <div class="dropdown">
+                <button class="btn btn-sm dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Difficulty
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <button class="dropdown-item mode" type="button">Easy</button>
+                    <button class="dropdown-item mode" type="button">Normal</button>
+                    <button class="dropdown-item mode" type="button">Hard</button>
+                    <button class="dropdown-item mode" type="button">Extreme</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div id="container">
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-    <div class="square"></div>
-</div>
-    <script type="text/javascript" src="colorgame.js"></script>
+<div id="gameBoard"></div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script type="text/javascript" src="colorgame.js"></script>
 </body>
 </html>
