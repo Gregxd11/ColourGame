@@ -2,12 +2,12 @@ var numSquares = 6;
 var colors = []
 var pickedColor;
 var squares = $(".square")
-var colorDisplay = document.getElementById("colorDisplay")
-var messageDisplay = document.querySelector("#message")
-var h1 = document.querySelector("h1")
-var resetButton = document.querySelector("#reset")
+var colorDisplay = $("#colorDisplay")
+var messageDisplay = $("#message")
+var h1 = $("h1")
+var resetButton = $("#reset")
 var modeButtons = $(".mode")
-var body = document.querySelector("body")
+var body = $("body")
 
 init()
 
@@ -18,7 +18,7 @@ function init(){
 	setupSquares()
 }
 
-resetButton.addEventListener("click", reset)
+$(resetButton).on("click", reset)
 
 function setupModeButtons(){
 	$(modeButtons).on("click", function(){
@@ -40,16 +40,16 @@ function setupModeButtons(){
 
 function setupSquares(){
 	$(".square").on("click", function () {
-		var clickedColor = this.style.backgroundColor
+		var clickedColor = $(this).css("backgroundColor")
 		//compare color to pickedColor
 		if (clickedColor === pickedColor) {
-			messageDisplay.textContent = "Correct!"
-			resetButton.textContent = "Play again?"
+			$(messageDisplay).text("Correct!")
+			$(resetButton).text("Play again?")
 			changeColors(clickedColor)
-			h1.style.backgroundColor = clickedColor
+			$(h1).css("backgroundColor", clickedColor)
 		} else {
-			this.style.backgroundColor = "#232323"
-			messageDisplay.textContent = "Try Again"
+			$(this).css("backgroundColor", "#232323")
+			$(messageDisplay).text("Try Again")
 		}
 	})
 }
@@ -57,13 +57,14 @@ function setupSquares(){
 function reset(){
 	colors = generateRandomColors(numSquares)
 	pickedColor = pickColor()
-	messageDisplay.textContent = ""
-	resetButton.textContent = "New colors"
-	colorDisplay.textContent = pickedColor
+	$(messageDisplay).text("")
+	$(resetButton).text("New colors")
+	$(colorDisplay).text(pickedColor)
 	makeBoard(numSquares)
+	setupSquares()
 	colorSquares()
-	h1.style.backgroundColor = "steelblue"
-	body.style.backgroundColor = "#232323"
+	$(h1).css("backgroundColor", "steelblue")
+	$(body).css("backgroundColor", "#232323")
 }
 
 
@@ -115,6 +116,7 @@ function randomColor(){
 	return "rgb(" + r + ", " + g + ", " + b + ")"
 }
 
+// Makes the game control bar stick to the top of screen when scrolled
 $(window).scroll(function () {
 	var sticky = $('.sticky'),
 		scroll = $(window).scrollTop();

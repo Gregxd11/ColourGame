@@ -17,6 +17,28 @@ h1 {
     transition: background-color 1.0s;
 }
 
+button {
+    border: none;
+    background: none;
+    text-transform: uppercase;
+    height: 100%;
+    font-weight: 700;
+    line-height: 1.75;
+    color: steelblue;
+    letter-spacing: 1px;
+    font-size: inherit;
+    transition: all 0.3s;
+    -webkit-transition: all 0.6;
+    -moz-transition: all 0.6;
+    outline: none;
+}
+
+button:hover{
+    color: white;
+    background-color:steelblue;
+}
+
+
 .square {
     width: 30%;
     padding-bottom: 30%;
@@ -28,20 +50,10 @@ h1 {
     -moz-transition: background-color 0.6;
 }
 
-#gameBoard{
-    max-width: 600px;
-    margin: 20px auto;
-}
-
-#colorDisplay {
-    font-size: 200%;
-}
-
-#stripe {
-    background-color: white;
-    height: 30px;
-}
-
+.fixed {
+    position: fixed;
+    top:0; left:0;
+    width: 100%; }
 
 .selected {
     color: white;
@@ -60,6 +72,7 @@ h1 {
 .btn:hover{
     color: white;
 }
+
 .dropdown-item{
     color: steelblue;
     font-weight: 700;
@@ -70,46 +83,36 @@ h1 {
     color: white;
 }
 
-button {
-    border: none;
-    background: none;
-    text-transform: uppercase;
-    height: 100%;
-    font-weight: 700;
-    line-height: 1.75;
-    color: steelblue;
-    letter-spacing: 1px;
-    font-size: inherit;
-    transition: all 0.3s;
-    -webkit-transition: all 0.6;
-    -moz-transition: all 0.6;
-    outline: none;
+#gameBoard{
+    max-width: 600px;
+    margin: 20px auto;
 }
 
+#colorDisplay {
+    font-size: 200%;
+}
+
+#stripe {
+    background-color: white;
+    height: 30px;
+}
+
+/* Drop down toggler */
 @media (min-width: 1005px){
     .dropdown{
         display: none;
     }
 }
-
+/* Drop down toggler */
 @media (max-width: 1005px){
     .expanded{
         display: none;
     }
 }
-
+/* Smaller RGB font size at mobile breakpoint*/
 @media (max-width: 576px){
     #colorDisplay {
         font-size: 4rem;
     }
 }
 
-button:hover{
-    color: white;
-    background-color:steelblue;
-}
-
-.fixed {
-    position: fixed;
-    top:0; left:0;
-    width: 100%; }
